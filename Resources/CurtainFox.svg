@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 256 256">
+  <title>Curtain fox</title>
+  <desc>A small amber fox peeks from the shadow of a jade velvet curtain, one paw curled around the fabric.</desc>
+  <defs>
+    <clipPath id="tile"><rect x="13" y="13" width="230" height="230" rx="51"/></clipPath>
+    <linearGradient id="stage" x1="0" y1="1" x2="1" y2="0" gradientUnits="objectBoundingBox"><stop stop-color="#122630"/><stop offset=".6" stop-color="#26494b"/><stop offset="1" stop-color="#538176"/></linearGradient>
+    <radialGradient id="lamp" cx=".34" cy=".48" r=".7"><stop stop-color="#e5bb73" stop-opacity=".38"/><stop offset="1" stop-color="#345653" stop-opacity="0"/></radialGradient>
+    <linearGradient id="fur" x1=".15" y1="0" x2=".8" y2="1"><stop stop-color="#ffdc95"/><stop offset=".46" stop-color="#efad64"/><stop offset="1" stop-color="#bd6840"/></linearGradient>
+    <linearGradient id="cream" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#fff1ce"/><stop offset="1" stop-color="#f3d19d"/></linearGradient>
+    <linearGradient id="velvet" x1="0" y1=".2" x2="1" y2=".5"><stop stop-color="#91d4b4"/><stop offset=".17" stop-color="#4c9e8a"/><stop offset=".4" stop-color="#1b675f"/><stop offset=".65" stop-color="#428e7d"/><stop offset="1" stop-color="#154e50"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0bd"/><stop offset=".5" stop-color="#e4b969"/><stop offset="1" stop-color="#ba8243"/></linearGradient>
+    <path id="drape" d="M113 10H249V243c-11-1-13-7-21-6-7 1-11 6-18 5-6-1-10-7-16-6-8 0-14 8-22 5-5-2-6-6-12-6-5 0-10 4-16 3 9-33 23-69 32-93-35-36-60-86-63-135Z"/>
+    <clipPath id="cloth"><use href="#drape"/></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect x="12" y="12" width="232" height="232" fill="url(#stage)"/>
+    <rect x="12" y="12" width="232" height="232" fill="url(#lamp)"/>
+    <!-- Stage floor in the shadows. -->
+    <path d="M8 219c40-12 100-15 151-10 38 2 66 2 92 0v44H8Z" fill="#112f35"/>
+    <ellipse cx="118" cy="218" rx="72" ry="8" fill="#0d252c" opacity=".65"/>
+    <!-- Small warm glints put the face in a pool of light, without confetti. -->
+    <path d="m47 72 1.6 4.2 4.3 1.6-4.3 1.6L47 84l-1.6-4.6-4.3-1.6 4.3-1.6Z" fill="#eccb87" opacity=".8"/>
+    <circle cx="65" cy="57" r="1.4" fill="#d8d6a7" opacity=".65"/>
+    <!-- Body and tail behind the face and stage right curtain. -->
+    <path d="M167 211c-10-13-12-29-6-46 5-13 12-21 16-33 16 11 20 32 13 53-4 12-12 22-23 26Z" fill="url(#fur)" stroke="#643e33" stroke-width="2.3"/>
+    <path d="M162 163c4-11 12-23 15-31 10 7 14 19 14 29l-9-5 2 9-9-7-1 8-6-6Z" fill="url(#cream)"/>
+    <path d="M94 170c-5 15-5 31-1 44 6 7 18 6 23 1 10 4 24 3 33-1 6 6 18 5 21-1 0-24-7-42-25-52Z" fill="url(#fur)" stroke="#674238" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M98 171c2 10 4 16 7 20l3-5 7 11 3-7 6 5c6-6 11-16 11-26Z" fill="url(#cream)"/>
+    <path d="M100 214c3-4 12-4 15 0m31 0c4-3 11-3 15 0" fill="none" stroke="#965837" stroke-width="2.1" stroke-linecap="round"/>
+    <!-- A tilted head with a silhouette that remains fox-shaped at 32 px. -->
+    <g transform="rotate(-9 111 135)">
+      <path d="M61 115c-4-12-7-37-2-51 2-4 6-4 10-1 12 7 21 16 29 27 13-5 27-6 41-2 10-11 21-20 33-24 5-2 8 0 8 6 1 16-3 32-10 44 6 10 7 20 8 27l6 6-8 2 4 5-9 2c-8 14-22 24-38 28-15 4-32 3-47-2-14-5-27-15-34-25l-8-4 5-4-7-4 8-5c2-11 5-19 11-25Z" fill="url(#fur)" stroke="#664333" stroke-width="2.8" stroke-linejoin="round"/>
+      <path d="M66 101c-3-10-5-21-3-31 10 6 18 14 24 23-7 1-14 4-21 8Zm82-8c7-8 16-15 25-19-1 12-4 23-9 32-5-6-10-10-16-13Z" fill="#a65c49"/>
+      <path d="M66 96c-2-5-3-12-2-18 5 5 10 10 14 15Zm95 3 9-17c0 7-2 13-5 18Z" fill="#d78d70"/>
+      <path d="M51 140c4 1 8 3 12 6l-1-7c13 1 23 7 32 15 6 5 12 7 19 6 8-9 18-15 31-18l-2 7c9-4 18-6 28-5l-3 5 8 1c-6 13-23 26-43 32-18 5-34 3-47-1-14-5-26-15-32-24l-7-4 5-4-6-4Z" fill="url(#cream)"/>
+      <path d="M98 96c2 4 3 6 6 9m2-12c2 4 4 7 6 9" stroke="#d79250" stroke-width="3.6" stroke-linecap="round"/>
+      <path d="M71 116q7-5 13-2m34-2q8-6 16-3" fill="none" stroke="#8b5539" stroke-width="3.4" stroke-linecap="round"/>
+      <ellipse cx="79" cy="131" rx="7.6" ry="10.2" fill="#2a3537"/><ellipse cx="125" cy="128" rx="8.6" ry="11.0" fill="#2a3537"/>
+      <ellipse cx="76.7" cy="127.6" rx="2.6" ry="3.2" fill="#fff4db"/><ellipse cx="122.3" cy="124.2" rx="2.9" ry="3.4" fill="#fff4db"/>
+      <ellipse cx="66" cy="145" rx="6.8" ry="3.8" fill="#e79b80" opacity=".85"/><ellipse cx="141" cy="141" rx="7" ry="3.8" fill="#e79b80" opacity=".8"/>
+      <path d="M92 146c1-3 12-4 15-2 2 2-3 8-6 9-3 1-10-4-9-7Z" fill="#3c3a37"/>
+      <path d="M101 153c1 5 6 7 11 3" fill="none" stroke="#75513e" stroke-width="2.6" stroke-linecap="round"/>
+    </g>
+    <!-- Overlapping folds obscure one ear, one shoulder and most of the body. -->
+    <use href="#drape" transform="translate(-4 2)" fill="#143638" opacity=".35"/>
+    <use href="#drape" fill="url(#velvet)"/>
+    <g clip-path="url(#cloth)">
+      <path d="M122 6c0 43 29 106 58 138-20-41-33-96-32-141Z" fill="#b3e3bf" opacity=".31"/>
+      <path d="M152 4c-2 51 12 98 31 137-9-53-9-94-1-138Z" fill="#0b4e4f" opacity=".72"/>
+      <path d="M180 5c-10 48-8 93 5 136-5-47 2-92 15-136Z" fill="#a0d8b1" opacity=".36"/>
+      <path d="M209 5c-17 46-23 100-20 137 5-44 22-94 48-131Z" fill="#195b58" opacity=".77"/>
+      <path d="M249 38c-32 37-47 70-57 103 17-26 33-51 58-68Z" fill="#90c8a7" opacity=".23"/>
+      <path d="M178 148c-17 39-25 68-30 103h20c-2-41 3-70 12-102Z" fill="#a9d9af" opacity=".42"/>
+      <path d="M184 149c-8 36-7 66-2 104l22-1c-12-43-17-75-16-104Z" fill="#165955"/>
+      <path d="M193 148c5 42 13 73 25 106l9-4c-16-36-25-66-30-103Z" fill="#a1ceaa" opacity=".33"/>
+      <path d="M202 149c23 19 37 41 48 70v-50Z" fill="#0c514e" opacity=".49"/>
+    </g>
+    <path d="M115 15c4 43 31 99 61 130-10 28-24 64-32 93" fill="none" stroke="#abdbb7" stroke-width="2.5" opacity=".7"/>
+    <!-- A golden tieback gives the curtain a familiar silhouette. -->
+    <path d="M177 143c20 2 43-2 65-13m-64 18c23 1 44-3 65-13" fill="none" stroke="#35645b" stroke-width="5" opacity=".55"/>
+    <path d="M177 142c21 2 43-2 66-13m-65 17c22 1 43-3 65-13" fill="none" stroke="url(#gold)" stroke-width="3.3" stroke-linecap="round"/>
+    <path d="M216 141c5 5 6 10 5 17" fill="none" stroke="#e7c182" stroke-width="2.7"/>
+    <path d="M218 160q2-5 5-4l5 14q-6 3-12 1Z" fill="url(#gold)"/><circle cx="221.4" cy="157" r="3" fill="#edca88"/>
+    <!-- The paw sits in front of the seam, not on the fox's chest. -->
+    <path d="M161 159c3-5 10-8 15-5 3 1 4 5 2 8-2 4-8 8-12 7-4 0-7-5-5-10Z" fill="url(#cream)" stroke="#82583e" stroke-width="1.9"/>
+    <path d="m173 158 4-1m-6 6 5-2" fill="none" stroke="#ba8960" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <rect x="13.8" y="13.8" width="228.4" height="228.4" rx="50.5" fill="none" stroke="#d3e6c8" stroke-opacity=".23" stroke-width="1.6"/>
+</svg>
