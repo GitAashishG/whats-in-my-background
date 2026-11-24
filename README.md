@@ -1,31 +1,54 @@
-# What’s in My Background
+<p align="center">
+  <img src="Resources/CurtainFox.svg" width="96" height="96" alt="An amber fox peeking from behind a jade curtain">
+</p>
 
-A native macOS dashboard for the LaunchAgents you maintain. Your account runs jobs from other apps too, so process ownership alone cannot identify your scripts. Add a job to the watchlist once; the main window shows its state and schedule without mixing in vendor helpers. The watchlist stays on this Mac.
+<h1 align="center">What’s in My Background</h1>
 
-## Run
+<p align="center">A Mac watchlist for the background jobs you maintain.</p>
 
-Requires macOS 14 or later and the Xcode Command Line Tools. No packages, administrator password, network connection or background helper required.
+<p align="center">
+  <a href="#build-and-open">Build and open</a> &nbsp;·&nbsp;
+  <a href="#manage-a-job">Manage a job</a> &nbsp;·&nbsp;
+  <a href="#safeguards">Safeguards</a>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/images/watchlist-dark.png">
+    <img src="docs/images/watchlist-light.png" width="860" alt="The watchlist with three example jobs. Notes Index is expanded, showing its schedule, program, and controls to stop it or remove it from startup.">
+  </picture>
+</p>
+
+That script you set up months ago: is it still running, or just waiting for its next scheduled run? Add its LaunchAgent to your watchlist to see its status and schedule. Expand the row when you want to make a change. Apps’ helpers stay out of the list unless you choose them.
+
+## Build and open
+
+You need **macOS 14 or later** and the **Xcode Command Line Tools**. If the tools aren’t installed, run `xcode-select --install` first.
 
 ```sh
+git clone https://github.com/GitAashishG/whats-in-my-background.git
+cd whats-in-my-background
 bash scripts/build-app.sh
 open 'dist/What’s in My Background.app'
 ```
 
-For regular use, drag the built app to `~/Applications`. The build is ad-hoc signed for local use, not notarized for distribution. Open the app from Finder or Spotlight.
-
-The curtain fox is original vector artwork in [Resources/CurtainFox.svg](Resources/CurtainFox.svg). The build renders it at the native Finder and Dock icon sizes using macOS tools.
+For everyday use, drag the app from `dist` to `~/Applications`. The build is ad-hoc signed for local use, not notarized for distribution. The app runs without `sudo`, a network connection, or a background helper of its own.
 
 ## Manage a job
 
-Add an installed job from `~/Library/LaunchAgents` that you recognize. Adding or forgetting a label only changes your watchlist; neither starts nor stops the job. The app refreshes when it becomes active, every 15 seconds while active, or when you press Command-R. Scheduled jobs can be loaded without having a running process.
+Choose **Add jobs** and select a label you recognize from `~/Library/LaunchAgents`. Adding a job starts tracking it; it doesn’t start the process. A job marked **Waiting** is loaded and ready for its next trigger.
 
-- **Stop until login** unloads the job from your login session. This prevents `KeepAlive` from immediately relaunching it and pauses scheduled runs. The startup file stays installed for the next login.
-- **Load now** registers a stopped job again. `launchd` decides whether to run it immediately or wait for its schedule.
-- **Remove from startup** unloads the job and moves its plist to `~/Library/Application Support/WhatsInMyBackground/Removed Startup Items/`. It does not delete the script, logs or configuration.
-- **Restore startup** returns the archived plist to `~/Library/LaunchAgents` and loads the job. It won't overwrite a new file that already uses its name.
+| Action | What happens |
+| :--- | :--- |
+| **Stop until login** | Unloads the job and pauses scheduled runs. Its startup file stays in place for your next login. Use **Load now** to bring it back sooner. |
+| **Remove from startup** | Unloads the job and archives its startup file. The script, its settings outside the plist, and its logs stay where they are. |
+| **Restore startup** | Returns the archived plist to `~/Library/LaunchAgents` and loads the job. Its schedule determines whether it runs immediately. |
+| **Stop tracking** | Removes the row from the watchlist without changing the job. |
 
-Only user-owned, directly installed job definitions can be managed. System daemons, jobs in other users’ sessions, arbitrary shell processes, cron jobs and app-managed login items are outside this app's scope. Nothing runs as root. Keep the original installer or source for any jobs you want to reproduce on another Mac.
+Press **⌘R** to refresh. The window also refreshes when it becomes active and every 15 seconds while you use it.
 
-## Verify the safeguards
+## Safeguards
 
-Run `bash scripts/test-guards.sh` in a macOS login session. It uses a disposable directory and checks that an untracked job, a conflicting archive and a symlink substituted after selection cannot be archived. It does not load or stop any services.
+The app manages user-owned LaunchAgent files installed directly in your login account. System daemons, cron jobs, and other users’ processes are outside its scope. Archiving uses `~/Library/Application Support/WhatsInMyBackground/Removed Startup Items/`. Restoring won’t overwrite a new startup file with the same name.
+
+Run `bash scripts/test-guards.sh` to check how the app handles an untracked label, a conflicting archive, and a substituted symlink. The test uses a disposable directory and doesn’t load or stop any services.
